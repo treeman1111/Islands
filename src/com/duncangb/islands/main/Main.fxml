@@ -1,0 +1,8 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.canvas.Canvas?>
+
+<BorderPane fx:controller="com.duncangb.islands.main.islandController" xmlns:fx="http://javafx.com/fxml" onKeyPressed="#handleKeyPress">
+    <center>
+        <Canvas width="640" height="640" focusTraversable="true" fx:id="canvas" onKeyPressed="#handleKeyPress"/>
+    </center>
+</BorderPane>
