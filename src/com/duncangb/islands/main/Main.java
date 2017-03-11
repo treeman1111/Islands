@@ -16,12 +16,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        if (!(new File(islandController.GAME_INFO_DIRECTORY).isDirectory())) {
-            new File(islandController.CHUNK_DIRECTORY).mkdirs();
-        } else {
-            new File(islandController.GAME_INFO_DIRECTORY).delete();
-        }
-
         Parent root = FXMLLoader.load(getClass().getResource("Main.fxml"));
         primaryStage.setTitle("Islands");
         primaryStage.setScene(new Scene(root));

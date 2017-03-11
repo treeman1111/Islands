@@ -1,11 +1,10 @@
 package com.duncangb.islands.terrain;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TileMap implements ITileMap {
-    private Map<Coordinate, IChunk> map;
+public class TileMap {
+    private Map<Coordinate, Chunk> map;
     private int chunks_wide;
     private int chunks_tall;
 
@@ -21,28 +20,23 @@ public class TileMap implements ITileMap {
         map = new HashMap<>(INIT_MAP_SIZE); // More efficient than growing each time a new chunk is added?
     }
 
-    @Override
     public int getWidthInTiles() {
         return chunks_wide * Chunk.CHUNK_WIDTH;
     }
 
-    @Override
     public int getHeightInTiles() {
         return chunks_tall * Chunk.CHUNK_HEIGHT;
     }
 
-    @Override
     public int getWidthInChunks() {
         return chunks_tall;
     }
 
-    @Override
     public int getHeightInChunks() {
         return chunks_wide;
     }
 
-    @Override
-    public ITile getTileAtPosition(int x, int y) {
+    public Tile getTileAtPosition(int x, int y) {
         int chunk_x = x / Chunk.CHUNK_WIDTH;
         int chunk_y = y / Chunk.CHUNK_HEIGHT;
 
@@ -52,27 +46,20 @@ public class TileMap implements ITileMap {
         return getTileAtPosition(chunk_x, chunk_y, tile_x, tile_y);
     }
 
-    @Override
-    public ITile getTileAtPosition(int chunk_x, int chunk_y, int tile_x, int tile_y) {
+    public Tile getTileAtPosition(int chunk_x, int chunk_y, int tile_x, int tile_y) {
         checkTileBounds(chunk_x, chunk_y, tile_x, tile_y);
 
         if (map.containsKey(new Coordinate(chunk_x, chunk_y))) {
             return map.get(new Coordinate(chunk_x, chunk_y)).getTileAtPosition(tile_x, tile_y);
         } else {
-            Chunk temp = null;
-            try {
-                temp = new Chunk(chunk_x, chunk_y);
-            } catch (IOException e) {
-                System.exit(-1);
-            }
+            Chunk temp = new Chunk(chunk_x, chunk_y);
 
             map.put(new Coordinate(chunk_x, chunk_y), temp);
             return temp.getTileAtPosition(tile_x, tile_y);
         }
     }
 
-    @Override
-    public void setTileAtPosition(int x, int y, ITile tile) {
+    public void setTileAtPosition(int x, int y, Tile tile) {
         int chunk_x = x / Chunk.CHUNK_WIDTH;
         int chunk_y = y / Chunk.CHUNK_HEIGHT;
 
@@ -82,8 +69,7 @@ public class TileMap implements ITileMap {
         setTileAtPosition(chunk_x, chunk_y, tile_x, tile_y, tile);
     }
 
-    @Override
-    public void setTileAtPosition(int chunk_x, int chunk_y, int tile_x, int tile_y, ITile tile) {
+    public void setTileAtPosition(int chunk_x, int chunk_y, int tile_x, int tile_y, Tile tile) {
         checkTileBounds(chunk_x, chunk_y, tile_x, tile_y);
 
         if (tile == null) {
@@ -93,13 +79,7 @@ public class TileMap implements ITileMap {
         if (map.containsKey(new Coordinate(chunk_x, chunk_y))) {
             map.get(new Coordinate(chunk_x, chunk_y)).setTileAtPosition(tile_x, tile_y, tile);
         } else {
-            Chunk temp = null;
-            try {
-                temp = new Chunk(chunk_x, chunk_y);
-            } catch (IOException e) {
-                System.exit(-1);
-            }
-
+            Chunk temp =  new Chunk(chunk_x, chunk_y);
             map.put(new Coordinate(chunk_x, chunk_y), temp);
             temp.setTileAtPosition(tile_x, tile_y, tile);
         }

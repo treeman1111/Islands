@@ -2,29 +2,25 @@ package com.duncangb.islands.terrain;
 
 import javafx.scene.paint.Color;
 
-public class Tile implements ITile {
+public class Tile {
     private byte height;
 
     public Tile(byte height) {
         setHeight(height);
     }
 
-    @Override
     public boolean isOcean() {
         return (this.height < 0);
     }
 
-    @Override
     public byte getHeight() {
         return this.height;
     }
 
-    @Override
     public void setHeight(byte height) {
         this.height = height;
     }
 
-    @Override
     public Color getColor() {
         if (getHeight() < 0 && getHeight() > -20) {
             return Color.rgb(16, 127, 201);
