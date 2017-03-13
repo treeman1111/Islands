@@ -21,6 +21,7 @@ public class Tile {
         this.height = height;
     }
 
+    // come up with a gradient function for this
     public Color getColor() {
         if (getHeight() < 0 && getHeight() > -20) {
             return Color.rgb(16, 127, 201);

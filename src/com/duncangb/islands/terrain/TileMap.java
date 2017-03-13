@@ -8,8 +8,6 @@ public class TileMap {
     private int chunks_wide;
     private int chunks_tall;
 
-    private static final short INIT_MAP_SIZE = 100;
-
     public TileMap(int chunks_wide, int chunks_tall) {
         if (chunks_wide < 2 || chunks_tall < 2) {
             throw new IllegalArgumentException("Map must be at least two chunks in either direction.");
@@ -17,7 +15,7 @@ public class TileMap {
 
         this.chunks_wide = chunks_wide;
         this.chunks_tall = chunks_tall;
-        map = new HashMap<>(INIT_MAP_SIZE); // More efficient than growing each time a new chunk is added?
+        map = new HashMap<>(chunks_wide * chunks_tall / 2); // More efficient than growing each time a new chunk is added?
     }
 
     public int getWidthInTiles() {
