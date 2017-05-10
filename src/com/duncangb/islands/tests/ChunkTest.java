@@ -8,6 +8,6 @@ public class ChunkTest {
 
     @Before
     public void setUp() throws Exception {
-        originChunk = new Chunk(0, 0);
+        //originChunk = new Chunk(0, 0);
     }
 }

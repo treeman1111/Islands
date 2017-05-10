@@ -15,7 +15,7 @@ public class TileMap {
 
         this.chunks_wide = chunks_wide;
         this.chunks_tall = chunks_tall;
-        map = new HashMap<>(chunks_wide * chunks_tall / 2); // More efficient than growing each time a new chunk is added?
+        map = new HashMap<>(chunks_wide * chunks_tall); // More efficient than growing each time a new chunk is added?
     }
 
     public int getWidthInTiles() {
@@ -51,10 +51,14 @@ public class TileMap {
             return map.get(new Coordinate(chunk_x, chunk_y)).getTileAtPosition(tile_x, tile_y);
         } else {
             Chunk temp = new Chunk(chunk_x, chunk_y);
-
             map.put(new Coordinate(chunk_x, chunk_y), temp);
             return temp.getTileAtPosition(tile_x, tile_y);
         }
+    }
+
+    public Chunk getChunkAtPosition(int chunk_x, int chunk_y) {
+        checkTileBounds(chunk_x, chunk_y, 0, 0);
+        return map.get(new Coordinate(chunk_x, chunk_y));
     }
 
     public void setTileAtPosition(int x, int y, Tile tile) {

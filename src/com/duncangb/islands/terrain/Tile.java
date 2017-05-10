@@ -2,41 +2,45 @@ package com.duncangb.islands.terrain;
 
 import javafx.scene.paint.Color;
 
-public class Tile {
-    private byte height;
+import static com.duncangb.islands.terrain.TerrainConstants.*;
 
-    public Tile(byte height) {
-        setHeight(height);
+public class Tile {
+    private int height;
+    private double moisture;
+
+    private static final Color DEEPEST_WATER = Color.DARKBLUE;
+    private static final Color SHALLOW_WATER = Color.LIGHTSEAGREEN;
+
+    private static final Color BEACH_COLOR = Color.BEIGE;
+    private static final Color PEAK_COLOR = Color.PURPLE;
+
+    public Tile(int height) {
+        this.height = height;
+        this.moisture = 1;
+    }
+
+    public void setMoisture(double m) {
+        this.moisture = m;
     }
 
     public boolean isOcean() {
-        return (this.height < 0);
+        return (this.height < SEA_LEVEL);
     }
 
-    public byte getHeight() {
+    public int getHeight() {
         return this.height;
     }
 
-    public void setHeight(byte height) {
-        this.height = height;
+    public double getMoisture() {
+        return this.moisture;
     }
 
-    // come up with a gradient function for this
     public Color getColor() {
-        if (getHeight() < 0 && getHeight() > -20) {
-            return Color.rgb(16, 127, 201);
-        } else if (getHeight() <= -20 && getHeight() > -40) {
-            return Color.rgb(14, 78, 173);
-        } else if (getHeight() <= -40 && getHeight() > -60) {
-            return Color.rgb(11, 16, 140);
-        } else if (getHeight() <= -60 && getHeight() > -80) {
-            return Color.rgb(12, 15, 102);
-        } else if (getHeight() <= -80 && getHeight() > -100){
-            return Color.rgb(7, 9, 61);
-        } else if (getHeight() == 0) {
-            return Color.rgb(253, 230, 189);
+        if (this.height < SEA_LEVEL) {
+            return SHALLOW_WATER.interpolate(DEEPEST_WATER, this.height / (-1.0 * SCALING_FACTOR));
         } else {
-            return Color.BLACK;
+            //return BEACH_COLOR.interpolate(PEAK_COLOR, this.height / (SCALING_FACTOR * 1.0));
+            return Color.RED.interpolate(Color.GREEN, moisture);
         }
     }
 }

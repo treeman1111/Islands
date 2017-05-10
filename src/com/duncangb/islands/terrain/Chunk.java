@@ -1,5 +1,10 @@
 package com.duncangb.islands.terrain;
 
+import java.util.Random;
+
+import static com.duncangb.islands.terrain.TerrainConstants.SCALING_FACTOR;
+import static com.duncangb.islands.terrain.TerrainConstants.SHIFT_FACTOR;
+
 public class Chunk {
     private Tile[][] contents;
 
@@ -8,19 +13,18 @@ public class Chunk {
 
     public Chunk(int i, int j) {
         this.contents = new Tile[CHUNK_WIDTH][CHUNK_HEIGHT];
-        int global_x = i * CHUNK_WIDTH;
-        int global_y = j * CHUNK_HEIGHT;
+        int global_x = i * CHUNK_WIDTH, global_y = j * CHUNK_HEIGHT;
 
         for (int x = 0; x < CHUNK_WIDTH; x++) {
             for (int y = 0; y < CHUNK_HEIGHT; y++) {
-                double nx = (global_x + x * 1.0f) / CHUNK_WIDTH - 0.5f;
-                double ny = (global_y + y * 1.0f) / CHUNK_HEIGHT - 0.5f;
+                double nx = (global_x + x * 1.0f) / CHUNK_WIDTH - 0.5f,
+                        ny = (global_y + y * 1.0f) / CHUNK_HEIGHT - 0.5f;
 
-                double raw_perlin = (Perlin.noise(nx, ny));
+                double raw_perlin = Perlin.octaved_perlin(nx, ny, 4, 0.5, 1, 128);
+                Tile gnu = new Tile((int) (SCALING_FACTOR * raw_perlin) + SHIFT_FACTOR);
 
-                byte scaled = (byte) (-255 * Math.abs(raw_perlin) - 1);
-
-                this.contents[x][y] = new Tile(scaled);
+                gnu.setMoisture((SCALING_FACTOR + SHIFT_FACTOR - gnu.getHeight()) / (1.0 * (SCALING_FACTOR + SHIFT_FACTOR)));
+                this.contents[x][y] = gnu;
             }
         }
     }

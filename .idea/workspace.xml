@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="simplified and sped up perlin code...finally starting to understand how it works. moved graphics updates from being triggered by player movement to happening every 16 ms.">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/duncangb/islands/life/Grass.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/duncangb/islands/terrain/TerrainConstants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Islands/com/duncangb/islands/main/Main.fxml" afterPath="$PROJECT_DIR$/out/production/Islands/com/duncangb/islands/main/Main.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/duncangb/islands/main/Main.fxml" afterPath="$PROJECT_DIR$/src/com/duncangb/islands/main/Main.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/duncangb/islands/main/islandController.java" afterPath="$PROJECT_DIR$/src/com/duncangb/islands/main/islandController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Chunk.java" afterPath="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Chunk.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Coordinate.java" afterPath="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Coordinate.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Perlin.java" afterPath="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Perlin.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Tile.java" afterPath="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Tile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/duncangb/islands/terrain/TileMap.java" afterPath="$PROJECT_DIR$/src/com/duncangb/islands/terrain/TileMap.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/duncangb/islands/tests/ChunkTest.java" afterPath="$PROJECT_DIR$/src/com/duncangb/islands/tests/ChunkTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/duncangb/islands/tests/TileTest.java" afterPath="$PROJECT_DIR$/src/com/duncangb/islands/tests/TileTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/duncangb/islands/time/GameClock.java" afterPath="$PROJECT_DIR$/src/com/duncangb/islands/time/GameClock.java" />
     </list>
@@ -68,13 +74,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="islandController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="islandController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/main/islandController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="37" column="16" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+            <state relative-caret-position="210">
+              <caret line="34" column="45" lean-forward="false" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/main/Main.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="85" lean-forward="false" selection-start-line="6" selection-start-column="85" selection-end-line="6" selection-end-column="85" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Grass.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/life/Grass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="37" column="39" lean-forward="false" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Coordinate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/Coordinate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="36" column="56" lean-forward="false" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
+              <folding>
+                <element signature="e#705#706#0" expanded="true" />
+                <element signature="e#768#769#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,48 +127,11 @@
       <file leaf-file-name="GameClock.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/time/GameClock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/main/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TileMap.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/TileMap.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-324">
-              <caret line="17" column="57" lean-forward="false" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
+            <state relative-caret-position="600">
+              <caret line="47" column="47" lean-forward="false" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#getTileAtPosition#0;class#TileMap#0" expanded="false" />
-                <element signature="method#checkTileBounds#0;class#TileMap#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Perlin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/Perlin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1041#1042#0" expanded="true" />
-                <element signature="e#1083#1084#0" expanded="true" />
-                <element signature="e#1147#1148#0" expanded="true" />
-                <element signature="e#1185#1186#0" expanded="true" />
+                <element signature="e#751#752#0" expanded="true" />
+                <element signature="e#805#806#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -133,14 +140,33 @@
       <file leaf-file-name="Chunk.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/Chunk.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="59" lean-forward="false" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
+            <state relative-caret-position="285">
+              <caret line="22" column="82" lean-forward="false" selection-start-line="22" selection-start-column="82" selection-end-line="22" selection-end-column="82" />
               <folding>
-                <element signature="e#888#889#0" expanded="true" />
-                <element signature="e#940#941#0" expanded="true" />
-                <element signature="e#1012#1013#0" expanded="true" />
-                <element signature="e#1064#1065#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Perlin.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/Perlin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChunkTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/tests/ChunkTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -148,8 +174,8 @@
       <file leaf-file-name="TileTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/tests/TileTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+            <state relative-caret-position="105">
+              <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="17" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -158,9 +184,11 @@
       <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/Tile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="23" column="48" lean-forward="false" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="495">
+              <caret line="43" column="9" lean-forward="false" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -208,10 +236,8 @@
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Point.java" />
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/Main.java" />
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/com/duncangb/islands/tests/ChunkTest.java" />
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Map.java" />
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/tests/CoordinateTest.java" />
-        <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Coordinate.java" />
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/tests/TileMapTest.java" />
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/TileFactory.java" />
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/islandController.java" />
@@ -223,15 +249,23 @@
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/ITileContainer.java" />
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/ITileMap.java" />
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/IChunk.java" />
-        <option value="$PROJECT_DIR$/src/com/duncangb/islands/main/Main.fxml" />
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/main/Main.java" />
-        <option value="$PROJECT_DIR$/src/com/duncangb/islands/time/GameClock.java" />
-        <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/TileMap.java" />
-        <option value="$PROJECT_DIR$/src/com/duncangb/islands/main/islandController.java" />
-        <option value="$PROJECT_DIR$/src/com/duncangb/islands/tests/TileTest.java" />
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Perlin.java" />
-        <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Chunk.java" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/TerrainConstants.java" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/life/Cactus.java" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/life/Fern.java" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/life/Plankton.java" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/life/OceanWanderer.java" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Coordinate.java" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/time/GameClock.java" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/life/Grass.java" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/main/Main.fxml" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/tests/TileTest.java" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/tests/ChunkTest.java" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/TileMap.java" />
         <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Tile.java" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/main/islandController.java" />
+        <option value="$PROJECT_DIR$/src/com/duncangb/islands/terrain/Chunk.java" />
       </list>
     </option>
   </component>
@@ -266,7 +300,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
@@ -369,8 +402,31 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Islands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Islands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="islands" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="life" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -792,21 +848,17 @@
       <updated>1359379246138</updated>
       <workItem from="1359379250712" duration="1302000" />
     </task>
+    <task id="LOCAL-00001" summary="simplified and sped up perlin code...finally starting to understand how it works. moved graphics updates from being triggered by player movement to happening every 16 ms.">
+      <created>1489370188559</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1489370188559</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TileTest_test - 2017.03.12 at 18h 05m 34s.xml">
-      <configuration name="TileTest.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TileTest_test - 2017.03.12 at 18h 05m 51s.xml">
-      <configuration name="TileTest.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TileTest_test - 2017.03.12 at 18h 05m 53s.xml">
-      <configuration name="TileTest.test" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="TileTest_test - 2017.03.12 at 18h 05m 55s.xml">
-      <configuration name="TileTest.test" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="TileTest_test - 2017.03.12 at 18h 19m 35s.xml">
       <configuration name="TileTest.test" configurationId="JUnit" />
     </history-entry>
@@ -823,6 +875,18 @@
       <configuration name="TileTest.test" configurationId="JUnit" />
     </history-entry>
     <history-entry file="TileTest_test - 2017.03.12 at 18h 25m 34s.xml">
+      <configuration name="TileTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TileTest_test - 2017.03.14 at 16h 47m 45s.xml">
+      <configuration name="TileTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TileTest_test - 2017.03.14 at 16h 49m 06s.xml">
+      <configuration name="TileTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TileTest_test - 2017.03.14 at 16h 53m 42s.xml">
+      <configuration name="TileTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TileTest_test - 2017.03.14 at 16h 56m 05s.xml">
       <configuration name="TileTest.test" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -845,14 +909,14 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917964" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281412" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3281412" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -863,7 +927,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3998378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997923" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -904,25 +968,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/ITileMap.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/main/islandController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -935,47 +980,7 @@
         <state relative-caret-position="0">
           <caret line="46" column="56" lean-forward="false" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getTileAtPosition#0;class#TileMap#0" expanded="false" />
-            <element signature="method#checkTileBounds#0;class#TileMap#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/ITileMap.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/main/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="18" column="47" lean-forward="false" selection-start-line="18" selection-start-column="47" selection-end-line="18" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/main/islandController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="40" column="13" lean-forward="false" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/TileMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="46" column="56" lean-forward="false" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getTileAtPosition#0;class#TileMap#0" expanded="false" />
-            <element signature="method#checkTileBounds#0;class#TileMap#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1151,22 +1156,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/ITileMap.java" />
     <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/IChunk.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/main/Main.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/StrictMath.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-          <folding />
+        <state relative-caret-position="-669">
+          <caret line="331" column="40" lean-forward="false" selection-start-line="331" selection-start-column="35" selection-end-line="331" selection-end-column="40" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/time/GameClock.java">
+    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Math.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-          <folding />
+        <state relative-caret-position="220">
+          <caret line="441" column="24" lean-forward="false" selection-start-line="441" selection-start-column="24" selection-end-line="441" selection-end-column="24" />
         </state>
       </provider>
     </entry>
@@ -1178,84 +1178,121 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/StrictMath.java">
+    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/TerrainConstants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-669">
-          <caret line="331" column="40" lean-forward="false" selection-start-line="331" selection-start-column="35" selection-end-line="331" selection-end-column="40" />
+        <state relative-caret-position="75">
+          <caret line="5" column="42" lean-forward="false" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/java/lang/Math.java">
+    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/life/Cactus.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/life/Fern.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/life/Plankton.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/life/OceanWanderer.java" />
+    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/tests/TileTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="441" column="24" lean-forward="false" selection-start-line="441" selection-start-column="24" selection-end-line="441" selection-end-column="24" />
-          <folding>
-            <element signature="e#17181#17182#0" expanded="true" />
-            <element signature="e#17264#17265#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="12" column="8" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="17" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/tests/ChunkTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="10" column="10" lean-forward="false" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/TileMap.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324">
-          <caret line="17" column="57" lean-forward="false" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
+        <state relative-caret-position="562">
+          <caret line="83" column="54" lean-forward="false" selection-start-line="83" selection-start-column="54" selection-end-line="83" selection-end-column="54" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#getTileAtPosition#0;class#TileMap#0" expanded="false" />
-            <element signature="method#checkTileBounds#0;class#TileMap#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/Perlin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1041#1042#0" expanded="true" />
-            <element signature="e#1083#1084#0" expanded="true" />
-            <element signature="e#1147#1148#0" expanded="true" />
-            <element signature="e#1185#1186#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/tests/TileTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/Chunk.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="59" lean-forward="false" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
-          <folding>
-            <element signature="e#888#889#0" expanded="true" />
-            <element signature="e#940#941#0" expanded="true" />
-            <element signature="e#1012#1013#0" expanded="true" />
-            <element signature="e#1064#1065#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="23" column="48" lean-forward="false" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
-          <folding />
+        <state relative-caret-position="495">
+          <caret line="43" column="9" lean-forward="false" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/main/islandController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="37" column="16" lean-forward="false" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+        <state relative-caret-position="210">
+          <caret line="34" column="45" lean-forward="false" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/main/Main.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="85" lean-forward="false" selection-start-line="6" selection-start-column="85" selection-end-line="6" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/life/Grass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="37" column="39" lean-forward="false" selection-start-line="37" selection-start-column="39" selection-end-line="37" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/time/GameClock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="47" column="47" lean-forward="false" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
+          <folding>
+            <element signature="e#751#752#0" expanded="true" />
+            <element signature="e#805#806#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/Coordinate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="36" column="56" lean-forward="false" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="56" />
+          <folding>
+            <element signature="e#705#706#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/Chunk.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="22" column="82" lean-forward="false" selection-start-line="22" selection-start-column="82" selection-end-line="22" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/duncangb/islands/terrain/Perlin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="31" column="25" lean-forward="false" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

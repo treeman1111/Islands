@@ -13,7 +13,7 @@ public class Perlin {
             p[256+i] = p[i] = permutation[i];
     }
 
-    static public double noise(double x, double y) {
+    public static double noise(double x, double y) {
         int X = (int) Math.floor(x) & 0xff;
         int Y = (int) Math.floor(y) & 0xff;
 
@@ -23,13 +23,30 @@ public class Perlin {
         double u = fade(x);
         double v = fade(y); // as x and y get closer to next unit cell, fade approaches 1.
 
-        int a = (p[X] + Y) & 0xff;
+        int a = (p[X]   + Y) & 0xff;
         int b = (p[X+1] + Y) & 0xff; // [0, 255] -- assigning the pseudorandom gradient to the gridpoints
 
         return lerp(v,
                 lerp(u, grad(p[a], x, y), grad(p[b], x-1, y)),
                 lerp(u, grad(p[a+1], x, y-1), grad(p[b+1], x-1, y-1))
         ); // returns [-1, 1]
+    }
+
+    public static double octaved_perlin(double x, double y, int octaves, double persistence, double init_freq,
+                                        double init_amp) {
+        double total = 0;
+        double frequency = init_freq;
+        double amplitude = init_amp;
+        double max = 0;
+
+        for(int i=0; i < octaves; i++) {
+            total += noise(x * frequency, y * frequency) * amplitude;
+            max += amplitude;
+            amplitude *= persistence;
+            frequency *= 2;
+        }
+
+        return total/max;
     }
 
     private static double fade(double t) {
