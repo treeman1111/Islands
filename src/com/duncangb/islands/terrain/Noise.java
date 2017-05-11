@@ -33,24 +33,12 @@ public class Noise {
         unscaled.setSourceModule(1, island);
         unscaled.setControlModule(perlin);
         unscaled.setBounds(100, 1.0275);
-        unscaled.setEdgeFalloff(0.025); // smaller values make the change from island to sea floor more rapid
+        unscaled.setEdgeFalloff(0.2); // smaller values make the change from island to sea floor more rapid
 
         terrain.setSourceModule(0, unscaled);
         terrain.setBias(0.5);
 
-        // shit way of finding (approximate) max and min values from lib...
-        Random rnd = new Random();
-        double val;
-        for(int i = 0; i < 1000; i++) {
-            val = terrain.getValue(rnd.doubles(1, -1e6, 1e6+1).findAny().getAsDouble(), 0, 0);
-            if(val < terrain_min) {
-                terrain_min = val;
-            }
-
-            if(val > terrain_max) {
-                terrain_max = val;
-            }
-        }
+        approximate_max_and_min();
     }
 
     public static double getTerrain(double x, double y) {
@@ -63,5 +51,21 @@ public class Noise {
 
     public static double getTerrainMin() {
         return terrain_min;
+    }
+
+    // shit way of finding (approximate) max and min values from lib...
+    private static void approximate_max_and_min() {
+        Random rnd = new Random();
+        double val;
+        for(int i = 0; i < 1000; i++) {
+            val = terrain.getValue(rnd.doubles(1, -1e6, 1e6+1).findAny().getAsDouble(), 0, 0);
+            if(val < terrain_min) {
+                terrain_min = val;
+            }
+
+            if(val > terrain_max) {
+                terrain_max = val;
+            }
+        }
     }
 }

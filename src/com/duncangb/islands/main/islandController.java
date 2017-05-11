@@ -104,7 +104,7 @@ public class islandController implements Initializable {
 
     private Color getTileColor(Tile t) {
         if(t.getHeight() < 0) {
-            return Color.DARKBLUE.interpolate(Color.LIGHTBLUE, t.getHeight() / -Noise.getTerrainMin());
+            return Color.LIGHTBLUE.interpolate(Color.DARKBLUE, t.getHeight() / Noise.getTerrainMin());
         } else {
             return Color.GREEN.interpolate(Color.BROWN, t.getHeight() / Noise.getTerrainMax());
         }
