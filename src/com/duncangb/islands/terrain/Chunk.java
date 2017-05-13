@@ -17,8 +17,6 @@ public class Chunk {
                         ny = (global_y + y * 1.0f) / CHUNK_HEIGHT - 0.5f;
 
                 Tile t = new Tile(Noise.getTerrain(nx,ny));
-
-                System.out.println(Noise.getTerrain(nx, ny));
                 this.contents[x][y] = t;
             }
         }

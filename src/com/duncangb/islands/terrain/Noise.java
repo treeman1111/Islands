@@ -25,14 +25,14 @@ public class Noise {
 
         island.setFrequency(0.7);
 
-        perlin.setFrequency(0.5);
+        perlin.setFrequency(0.4);
         perlin.setPersistence(0.5);
         perlin.setSeed(seed);
 
         unscaled.setSourceModule(0, scaled_sea_floor);
         unscaled.setSourceModule(1, island);
         unscaled.setControlModule(perlin);
-        unscaled.setBounds(100, 1.0275);
+        unscaled.setBounds(100, 0.65); // the higher the second value, the less likely the occurrence of islands
         unscaled.setEdgeFalloff(0.2); // smaller values make the change from island to sea floor more rapid
 
         terrain.setSourceModule(0, unscaled);
@@ -53,17 +53,17 @@ public class Noise {
         return terrain_min;
     }
 
-    // shit way of finding (approximate) max and min values from lib...
+    // questionable way of finding (approximate) max and min values from lib...
     private static void approximate_max_and_min() {
         Random rnd = new Random();
         double val;
-        for(int i = 0; i < 1000; i++) {
-            val = terrain.getValue(rnd.doubles(1, -1e6, 1e6+1).findAny().getAsDouble(), 0, 0);
+
+        for(int i = 0; i < 1e5; i++) {
+            val = terrain.getValue(rnd.doubles(1,0,1e6+1).findAny().getAsDouble(), 0, 0);
+
             if(val < terrain_min) {
                 terrain_min = val;
-            }
-
-            if(val > terrain_max) {
+            } else if(val > terrain_max) {
                 terrain_max = val;
             }
         }

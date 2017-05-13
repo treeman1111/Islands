@@ -2,9 +2,7 @@ package com.duncangb.islands.time;
 
 public class GameClock {
     private long year;
-    private int day;
-    private int hour;
-    private int minute;
+    private int day, hour, minute;
 
     public GameClock() {
         year = 0;
@@ -45,7 +43,7 @@ public class GameClock {
     }
 
     public boolean isNight() {
-        return this.hour > 20 || this.hour < 6;
+        return false;
     }
 
     @Override

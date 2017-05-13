@@ -44,8 +44,8 @@ public class TileMap {
         return getTileAtPosition(chunk_x, chunk_y, tile_x, tile_y);
     }
 
-    public Tile getTileAtPosition(int chunk_x, int chunk_y, int tile_x, int tile_y) {
-        checkTileBounds(chunk_x, chunk_y, tile_x, tile_y);
+    private Tile getTileAtPosition(int chunk_x, int chunk_y, int tile_x, int tile_y) {
+        if(!checkTileBounds(chunk_x, chunk_y, tile_x, tile_y)) return null;
 
         if (map.containsKey(new Coordinate(chunk_x, chunk_y))) {
             return map.get(new Coordinate(chunk_x, chunk_y)).getTileAtPosition(tile_x, tile_y);
@@ -57,7 +57,7 @@ public class TileMap {
     }
 
     public Chunk getChunkAtPosition(int chunk_x, int chunk_y) {
-        checkTileBounds(chunk_x, chunk_y, 0, 0);
+        if(!checkTileBounds(chunk_x, chunk_y, 0, 0)) return null;
         return map.get(new Coordinate(chunk_x, chunk_y));
     }
 
@@ -71,12 +71,9 @@ public class TileMap {
         setTileAtPosition(chunk_x, chunk_y, tile_x, tile_y, tile);
     }
 
-    public void setTileAtPosition(int chunk_x, int chunk_y, int tile_x, int tile_y, Tile tile) {
-        checkTileBounds(chunk_x, chunk_y, tile_x, tile_y);
-
-        if (tile == null) {
-            throw new IllegalArgumentException("Bitch, plz.");
-        }
+    private void setTileAtPosition(int chunk_x, int chunk_y, int tile_x, int tile_y, Tile tile) {
+        if(!checkTileBounds(chunk_x, chunk_y, tile_x, tile_y)) return;
+        if (tile == null) return;
 
         if (map.containsKey(new Coordinate(chunk_x, chunk_y))) {
             map.get(new Coordinate(chunk_x, chunk_y)).setTileAtPosition(tile_x, tile_y, tile);
@@ -88,13 +85,13 @@ public class TileMap {
 
     }
 
-    private void checkTileBounds(int chunk_x, int chunk_y, int tile_x, int tile_y) {
+    private boolean checkTileBounds(int chunk_x, int chunk_y, int tile_x, int tile_y) {
         if (chunk_x < 0 || chunk_x >= chunks_wide || chunk_y < 0 || chunk_y >= chunks_tall) {
-            throw new IllegalArgumentException("Chunk value should be between 0 and " + (chunks_wide - 1));
+            return false;
+        } else if (tile_x < 0 || tile_x >= Chunk.CHUNK_WIDTH || tile_y < 0 || tile_y >= Chunk.CHUNK_HEIGHT) {
+            return false;
         }
 
-        if (tile_x < 0 || tile_x >= Chunk.CHUNK_WIDTH || tile_y < 0 || tile_y >= Chunk.CHUNK_HEIGHT) {
-            throw new IllegalArgumentException("Tile value should be between 0 and " + (Chunk.CHUNK_HEIGHT - 1));
-        }
+        return true;
     }
 }

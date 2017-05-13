@@ -1,10 +1,17 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.canvas.Canvas?>
-
 <?import javafx.scene.control.Label?>
-<BorderPane fx:controller="com.duncangb.islands.main.islandController" xmlns:fx="http://javafx.com/fxml" onKeyPressed="#handleKeyPress">
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane fx:controller="com.duncangb.islands.main.islandController" fx:id="border" xmlns:fx="http://javafx.com/fxml"
+            onKeyPressed="#handleKeyPress">
     <center>
-        <Canvas focusTraversable="true" fx:id="canvas" onKeyPressed="#handleKeyPress"/>
+        <AnchorPane prefWidth="800" prefHeight="600">
+            <Canvas fx:id="canvas" focusTraversable="true" onKeyPressed="#handleKeyPress"
+                    onMouseClicked="#handleMouseClicked"
+                    AnchorPane.leftAnchor="0" AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0"
+                    AnchorPane.bottomAnchor="0"/>
+        </AnchorPane>
     </center>
 
     <bottom>
