@@ -5,6 +5,10 @@
 
 <BorderPane fx:controller="com.duncangb.islands.main.islandController" fx:id="border" xmlns:fx="http://javafx.com/fxml"
             onKeyPressed="#handleKeyPress">
+    <top>
+        <Label fx:id="info_lbl"/>
+    </top>
+
     <center>
         <AnchorPane prefWidth="800" prefHeight="600">
             <Canvas fx:id="canvas" focusTraversable="true" onKeyPressed="#handleKeyPress"
@@ -13,8 +17,4 @@
                     AnchorPane.bottomAnchor="0"/>
         </AnchorPane>
     </center>
-
-    <bottom>
-        <Label fx:id="info_lbl"/>
-    </bottom>
 </BorderPane>

@@ -1,7 +1,7 @@
 package com.duncangb.islands.terrain;
 
 public class Tile {
-    private double height, moisture;
+    private double height, moisture, temperature;
 
     public Tile(double height) {
         this.height = height;
@@ -11,8 +11,12 @@ public class Tile {
         this.moisture = m;
     }
 
+    public void setTemperature(double t) {
+        this.temperature = t;
+    }
+
     public boolean isOcean() {
-        return (this.height < 1);
+        return (this.height < 0);
     }
 
     public double getHeight() {
@@ -21,5 +25,9 @@ public class Tile {
 
     public double getMoisture() {
         return this.moisture;
+    }
+
+    public double getTemperature() {
+        return this.temperature;
     }
 }

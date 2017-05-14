@@ -2,7 +2,7 @@ package com.duncangb.islands.main;
 
 import com.duncangb.islands.gfx.Shaders;
 import com.duncangb.islands.terrain.Tile;
-import com.duncangb.islands.terrain.TileMap;
+import com.duncangb.islands.terrain.ChunkManager;
 import com.duncangb.islands.time.GameClock;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -29,44 +29,16 @@ public class islandController implements Initializable {
     private static final int TILE_PIXELS = 15;
 
     private int x_position, y_position;
-    private TileMap map;
+    private ChunkManager map;
     private GameClock clock;
+    private GraphicsContext gfx;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         init_resize_listeners();
         init_vars();
+        init_map();
         init_timer();
-    }
-
-    private void init_resize_listeners() {
-        this.border.heightProperty().addListener((observableValue, old_val, new_val) -> {
-            this.canvas.setHeight(new_val.doubleValue() - this.info_lbl.getHeight());
-            draw();
-        });
-
-        this.border.widthProperty().addListener((observableValue, old_val, new_val) -> {
-            this.canvas.setWidth(new_val.doubleValue());
-            draw();
-        });
-    }
-
-    private void init_vars() {
-        x_position = 0;
-        y_position = 0;
-        map = new TileMap(50, 50);
-        clock = new GameClock();
-    }
-
-    private void init_timer() {
-        Timeline loop = new Timeline(new KeyFrame(Duration.millis(16),
-                event -> {
-                    draw();
-                    clock.tick();
-                }
-        ));
-        loop.setCycleCount(Animation.INDEFINITE);
-        loop.play();
     }
 
     @FXML
@@ -91,10 +63,62 @@ public class islandController implements Initializable {
         }
     }
 
-    private void draw() {
-        GraphicsContext gfx = canvas.getGraphicsContext2D();
-        gfx.setStroke(Color.BLACK);
 
+    @FXML
+    public void handleMouseClicked(MouseEvent me) {
+        int tile_x = x_position + (int) (me.getX() / TILE_PIXELS);
+        int tile_y = y_position + (int) (me.getY() / TILE_PIXELS);
+        Tile t = map.getTileAtPosition(tile_x, tile_y);
+
+        info_lbl.setText(String.format("(%d,%d): %f, %f", tile_x, tile_y, t.getHeight(), t.getTemperature()));
+    }
+
+
+    private void init_resize_listeners() {
+        this.border.heightProperty().addListener((observableValue, old_val, new_val) -> {
+            this.canvas.setHeight(new_val.doubleValue() - this.info_lbl.getHeight());
+            draw();
+        });
+
+        this.border.widthProperty().addListener((observableValue, old_val, new_val) -> {
+            this.canvas.setWidth(new_val.doubleValue());
+            draw();
+        });
+    }
+
+    private void init_vars() {
+        this.x_position = 0;
+        this.y_position = 0;
+        this.map = new ChunkManager(50, 50);
+        this.clock = new GameClock();
+        this.gfx = canvas.getGraphicsContext2D();
+    }
+
+    private void init_map() {
+        for(int x = 0; x < this.map.getWidthInChunks(); x++) {
+            for(int y = 0; y < this.map.getHeightInChunks(); y++) {
+                this.map.getChunkAtPosition(x, y);
+            }
+        }
+
+        while(this.map.getNumChunksNeedingUpdate() > 0) {
+            this.map.updateChunks();
+        }
+    }
+
+    private void init_timer() {
+        Timeline loop = new Timeline(new KeyFrame(Duration.millis(16),
+                event -> {
+                    draw();
+                    this.clock.tick();
+                }
+        ));
+
+        loop.setCycleCount(Animation.INDEFINITE);
+        loop.play();
+    }
+
+    private void draw() {
         for(int x = 0; x < (canvas.getWidth() / TILE_PIXELS); x++) {
             for(int y = 0; y < (canvas.getHeight() / TILE_PIXELS); y++) {
                 gfx.setFill(Shaders.shade_elevation(map.getTileAtPosition(x_position + x, y_position + y)));
@@ -108,13 +132,5 @@ public class islandController implements Initializable {
         int g = (int) (c.getGreen() * 255);
         int b = (int) (c.getBlue()  * 255);
         return Color.rgb(r >>> 2, g >>> 2, b >>> 2);
-    }
-
-    public void handleMouseClicked(MouseEvent me) {
-        int tile_x = x_position + (int) (me.getX() / TILE_PIXELS);
-        int tile_y = y_position + (int) (me.getY() / TILE_PIXELS);
-        Tile t = map.getTileAtPosition(tile_x, tile_y);
-
-        info_lbl.setText(String.format("(%d,%d): %f", tile_x, tile_y, t.getHeight()));
     }
 }
